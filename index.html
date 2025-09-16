@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Mahfud</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <div class="logo">M</div>
+        <span class="brand-name">Muhammad Mahfud</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero fade-section">
+    <div class="container hero-grid">
+      <!-- Hero Text -->
+      <div class="hero-text">
+        <h1>Halo, Saya <span class="gradient-text">Muhammad Mahfud</span></h1>
+        <h2 id="typing"></h2>
+        <p class="lead">
+          Saya suka ngulik desain, edit video, animator bumper/intro, operator live streaming lebih dari 1 kamera, tim dokumentasi event dan IT support✨
+        </p>
+        <div class="cta">
+          <a href="CV Mahfud.pdf" download="CV-Mahfud.pdf" class="btn btn-outline">Download CV</a>
+          <a href="#projects" class="btn btn-primary">Lihat Project</a>
+        </div>
+      </div>
+
+      <!-- Hero Media / Profile Card -->
+      <div class="hero-media reveal delay-1 tilt" role="img" aria-label="Foto/ilustrasi profil">
+        <div class="profile card glass">
+          <div class="profile-pic">
+            <img src="Foto Mahfud.jpeg" alt="Foto Mahfud">
+          </div>
+          <div class="profile-meta">
+            <div class="pill">Jakarta, 01 April 2007</div>
+            <div class="meta-row">
+              <span>Lokasi</span><strong>Srengseng, Jakarta Barat</strong>
+            </div>
+            <div class="meta-row">
+              <span>Fokus</span><strong>Mencari Pekerjaan Halal</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider"></div>
+
+  <!-- About Section -->
+  <section id="about" class="section fade-section">
+    <div class="container about-content">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Saya adalah fresh graduate SMK jurusan Desain Komunikasi Visual dengan passion di bidang multimedia dan kreatif digital. 
+        Terampil menggunakan Adobe Premiere Pro, Photoshop, After Effects, Illustrator, OBS Studio, serta kamera fotografi & broadcast profesional. 
+        Saya cepat beradaptasi, senang belajar hal baru, dan percaya visual bisa menyampaikan cerita yang impactful.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section alt">
+    <div class="container">
+      <header class="section-head fade-section">
+        <h2 class="section-title">Skills</h2>
+        <p>Software dan Tools yang sering saya gunakan.</p>
+      </header>
+      <div class="skills-grid">
+        <div class="skill glass fade-section"><span>Adobe Illustrator</span><div class="bar"><i style="width:95%"></i></div></div>
+        <div class="skill glass fade-section"><span>Adobe Premiere Pro</span><div class="bar"><i style="width:92%"></i></div></div>
+        <div class="skill glass fade-section"><span>OBS Studio</span><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="skill glass fade-section"><span>VS Code</span><div class="bar"><i style="width:85%"></i></div></div>
+        <div class="skill glass fade-section"><span>MS Office</span><div class="bar"><i style="width:82%"></i></div></div>
+        <div class="skill glass fade-section"><span>Adobe After Effects</span><div class="bar"><i style="width:90%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section fade-section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-section"><div class="project-thumb" style="background-image:url('https://picsum.photos/800/600?1');"></div><h3>Project 1</h3></div>
+        <div class="project-card fade-section"><div class="project-thumb" style="background-image:url('https://picsum.photos/800/600?2');"></div><h3>Project 2</h3></div>
+        <div class="project-card fade-section"><div class="project-thumb" style="background-image:url('https://picsum.photos/800/600?3');"></div><h3>Project 3</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://instagram.com/username" target="_blank" data-tooltip="Instagram"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
+      <a href="https://facebook.com/username" target="_blank" data-tooltip="Facebook"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
+      <a href="https://linkedin.com/in/username" target="_blank" data-tooltip="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="https://wa.me/628123456789" target="_blank" data-tooltip="WhatsApp"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"></a>
+      <a href="mailto:username@gmail.com" data-tooltip="Gmail"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail"></a>
+    </div>
+    <p>&copy; <span id="year"></span> Muhammad Mahfud</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
