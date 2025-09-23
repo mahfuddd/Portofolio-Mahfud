@@ -1,0 +1,179 @@
+/* ==========================
+   General
+========================== */
+:root {
+  --primary: #4a90e2;
+  --text: #222;
+  --muted: #555;
+  --glass: rgba(255, 255, 255, 0.6);
+  --shadow: 0 4px 30px rgba(0,0,0,0.1);
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: #f9fbfd;
+  color: var(--text);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 2rem 0;
+}
+
+/* ==========================
+   Header
+========================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  color: var(--primary);
+}
+
+/* ==========================
+   Section & Titles
+========================== */
+.section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* ==========================
+   Project Detail
+========================== */
+.project-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.project-detail-img {
+  flex: 1 1 400px;
+  max-width: 500px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.project-detail-info {
+  flex: 1 1 300px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.project-detail-info h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .2s;
+  font-size: 0.95rem;
+  display: inline-block;
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ==========================
+   Footer
+========================== */
+footer {
+  padding: 1rem 0;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.8rem 0;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+/* Bikin body full height dan flex layout */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Biar main section nge-push footer ke bawah */
+main {
+  flex: 1;
+}

@@ -316,7 +316,14 @@ body {
 .skill .bar i {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg,var(--primary),#6ab1ff);
+  background: var(--primary);
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease;
+}
+.skill.animate .bar i {
+  transform: scaleX(1);
 }
 
 .skills-grid .canva-center {
@@ -602,3 +609,18 @@ body {
     height: 220px; /* ukuran konsisten */
   }
 }
+
+/* ==========================
+   Smooth Scroll + Scrollspy
+========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-links a.active {
+  color: var(--primary);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary);
+}
+
