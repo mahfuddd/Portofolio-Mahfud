@@ -6,9 +6,9 @@ function updateProgressBar() {
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const progress = (scrollTop / scrollHeight) * 100;
   document.getElementById("progress-bar").style.width = progress + "%";
+  requestAnimationFrame(updateProgressBar);
 }
-window.addEventListener("scroll", updateProgressBar);
-
+updateProgressBar();
 
 /* ==========================
    Typing Effect Variasi
@@ -21,16 +21,19 @@ function typeWriter() {
   const currentText = texts[textIndex];
   typingElement.textContent = currentText.substring(0, charIndex) + "|";
 
+  let speed = isDeleting ? 60 : 120;
+  if (Math.random() < 0.1) speed += 100; // random jeda
+
   if (!isDeleting && charIndex < currentText.length) {
     charIndex++;
-    setTimeout(typeWriter, 120);
+    setTimeout(typeWriter, speed);
   } else if (isDeleting && charIndex > 0) {
     charIndex--;
-    setTimeout(typeWriter, 60);
+    setTimeout(typeWriter, speed / 2);
   } else {
     if (!isDeleting) {
       isDeleting = true;
-      setTimeout(typeWriter, 1200);
+      setTimeout(typeWriter, 1000);
     } else {
       isDeleting = false;
       textIndex = (textIndex + 1) % texts.length;
@@ -52,6 +55,11 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 fadeSections.forEach(section => fadeObserver.observe(section));
 
+const fadeDowns = document.querySelectorAll(".fade-down");
+fadeDowns.forEach(item => fadeObserver.observe(item));
+
+const fadeBounces = document.querySelectorAll(".fade-bounce");
+fadeBounces.forEach(item => fadeObserver.observe(item));
 
 /* ==========================
    Auto Footer Year
@@ -61,18 +69,17 @@ document.getElementById("year").textContent = new Date().getFullYear();
 /* ==========================
    Smooth Scroll + Scrollspy
 ========================== */
-const sectionsSpy = document.querySelectorAll("section");
+const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
   let current = "";
-  sectionsSpy.forEach(section => {
+  sections.forEach(section => {
     const sectionTop = section.offsetTop - 100;
     if (scrollY >= sectionTop) {
       current = section.getAttribute("id");
     }
   });
-
   navLinks.forEach(link => {
     link.classList.remove("active");
     if (link.getAttribute("href").includes(current)) {

@@ -1,0 +1,383 @@
+:root {
+  --primary: #4a90e2;
+  --text: #222;
+  --muted: #555;
+  --glass: rgba(255, 255, 255, 0.6);
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================
+   Global
+========================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: #f9fbfd;
+  color: var(--text);
+  padding-top: 70px; /* biar konten ga ketiban header */
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 2rem 0;
+}
+
+/* ==========================
+   Progress Bar
+========================== */
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #eaeaea;
+  z-index: 9999;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--primary);
+  transition: width 0.2s ease;
+}
+
+/* ==========================
+   Header
+========================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand { 
+  text-decoration: none; 
+  color: var(--primary); 
+  font-weight: 700; 
+  font-size: 1.2rem; 
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links .active { color: var(--primary); }
+
+/* ==========================
+   Section & Titles 
+===========================*/
+.section { padding: 4rem 0; text-align: center; }
+.section-title { font-size: 2rem; margin-bottom: 1rem; color: var(--primary); }
+.lead { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+
+/* ==========================
+   Project Detail
+===========================*/
+.project-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.project-detail-info { flex:1 1 300px; max-width:700px; }
+.project-detail-info h3 { margin-top:0; color: var(--primary); }
+
+/* ==========================
+   Buttons
+=========================== */
+.btn { 
+  padding:0.55rem 1.2rem; 
+  border-radius:10px; 
+  font-weight:600; 
+  font-size:0.95rem; 
+  text-decoration:none; 
+  display:inline-block; 
+  transition:all .2s; 
+}
+.btn-outline { 
+  border:2px solid var(--primary); 
+  color:var(--primary); 
+  background:transparent; 
+}
+.btn-outline:hover { background: var(--primary); color:#fff; }
+
+/* ==========================
+   Gallery
+=========================== */
+.project-gallery {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ==========================
+   Kotak preview 1:1
+=========================== */
+.project-item {
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease;
+  aspect-ratio: 1/1;        
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #76b6ff; /* cukup border kotaknya aja */
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  box-shadow: #222 0 100px 1000px rgba(255, 0, 0, 0.1);
+}
+
+.project-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* isi penuh box 1:1 */
+  border-radius: 10px; /* biar ngikutin sudut kotak */
+  box-shadow: 0 400px 1000px rgba(0,0,0,0.08);
+  display: block;
+  transition: transform 0.3s ease;
+  filter: blur(2px) brightness(0.9); /* awalnya agak blur + redup */
+}
+
+.project-item:hover img {
+  transform: scale(1.2);
+  filter: blur(0) brightness(1); /* jadi jelas pas hover */
+}
+
+/* ==========================
+   Modal
+========================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background: #ffffff;
+  padding: 1rem;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.modal-content img {
+  max-width: 99%;
+  max-height: 70vh;
+  border-radius: 8px;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  margin-bottom: 1rem;
+  display: block;
+  position: relative;
+  opacity: 0;
+  transform: translateX(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* ==========================
+   efek masuk dari kanan
+========================== */
+.modal-content img.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInRight 0.5s ease forwards;
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ==========================
+   efek masuk dari kiri
+========================== */
+.modal-content img.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInLeft 0.5s ease forwards;
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.modal-content img.show { opacity: 1; transform: scale(1); }
+.modal-content h3 { margin: 0.5rem 0; color: var(--primary); }
+.modal-content p { color: var(--text); }
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 0 12px;
+  user-select: none;
+  transform: translateY(-50%);
+  z-index: 2100;
+}
+.prev { left: 10px; } 
+.next { right: 10px; }
+.prev:hover, .next:hover { color: var(--primary); }
+
+.modal-back {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 2200;
+}
+.modal-back:hover { background: #357abd; }
+
+/* ==========================
+   Scroll Reveal Animations
+========================== */
+.fade-section { 
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.6s ease, transform 0.6s ease; 
+}
+.fade-section.show { opacity: 1; transform: translateY(0); }
+
+/* ==========================
+   Footer
+========================== */
+.footer {
+  padding: 1rem 0;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  transition: transform .2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+}
+
+.social-links img {
+  width: 100%;
+  filter: invert(1);
+}
+
+.footer p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ==========================
+    Responsive
+========================== */
+
+/* Android (≤480px) */
+@media (max-width: 480px) {
+  .project-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding-inline: 10px;
+  }
+
+  .modal-content {
+    max-width: 70%; 
+    max-height: 60%;
+    padding: 0.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .modal-content img {
+    max-width: 97%;
+    max-height: 45vh;
+    object-fit: cover;
+  }
+
+  .modal-content h3 { font-size: 0.82rem; }
+  .modal-content p { font-size: 0.7rem; }
+  .btn { font-size: 0.8rem; padding: 0.38rem 0.85rem; }
+}
+
+/* Tablet (768px–1366px) */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .project-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-inline: 20px;
+  }
+
+  .modal-content {
+    max-width: 70%;
+    max-height: 60%;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .modal-content img {
+    max-width: 98%;
+    max-height: 55vh;
+    object-fit: cover;
+  }
+
+  .modal-content h3 { font-size: 1.1rem; }
+  .modal-content p { font-size: 0.9rem; }
+  .btn { font-size: 1.05rem; padding: 0.6rem 1.3rem; }
+}

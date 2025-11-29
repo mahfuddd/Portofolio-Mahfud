@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1 - Graphic Design | Portfolio Mahfud</title>
+  <link rel="stylesheet" href="Project 1.css">
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand"><span>Mahfud</span></a>
+      <nav class="nav-links">
+        <a href="C:\Web Portofolio Mahfud\index.html#projects" class="btn btn-outline">← Kembali ke Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project Detail -->
+  <main class="section fade-section">
+    <div class="container">
+      <div class="project-detail">
+        <div class="project-detail-info">
+          <h1 class="section-title">Graphic Design</h1>
+          <p>
+            Project ini berfokus pada desain grafis untuk kebutuhan promosi event, branding,
+            hingga materi visual untuk media sosial. Tools utama yang digunakan adalah
+            <strong>Adobe Illustrator</strong>.
+          </p>
+          <p>Berikut kumpulan karya desain grafis banner, pamflet, dan logo yang pernah saya kerjakan :</p>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <h2 class="section-title">Galeri Project</h2>
+      <div class="project-gallery" id="gallery"></div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="project-modal" class="modal">
+    <button class="modal-back" onclick="closeModal()">← Kembali</button>
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Project Preview">
+      <h3 id="modal-title"></h3>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://instagram.com/Fuddddd_" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
+      <a href="https://instagram.com/skcwckck" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
+      <a href="https://facebook.com/muhammad.mahfud.96558" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
+      <a href="https://linkedin.com/in/muhammad-mahfud-67a41b364" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="https://wa.me/6285717360848" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"></a>
+      <a href="mailto:mmahfud094@gmail.com"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail"></a>
+    </div>
+    <p>&copy; <span id="year"></span> Muhammad Mahfud</p>
+  </footer>
+
+  <script src="Project 1.js"></script>
+</body>
+</html>
